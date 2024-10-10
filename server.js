@@ -20,6 +20,12 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+app.get('/', (req,res) => {
+    return res.json({
+        message : "Server is runnign"
+    })
+})
+
 // Endpoint to send an email
 app.post('/sendMail', async (req, res) => {
     const { username, userEmail, message } = req.body;
@@ -40,7 +46,7 @@ app.post('/sendMail', async (req, res) => {
         return res.status(500).json({ message: 'Failed to send email.' });
     }
 });
-
-app.listen(4000, () => {
-    console.log('Server is running on http://localhost:4000');
+const port = process.env.PORT || 4001
+app.listen(port, () => {
+    console.log('Server is running on http://localhost'+port);
 });
