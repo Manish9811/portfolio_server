@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail', // Use your email service
     auth: {
         user: process.env.email,
-        pass: process.env.password, // Use App Password if you have 2FA enabled
+        pass: process.env.pass, // Use App Password if you have 2FA enabled
     },
 });
 
